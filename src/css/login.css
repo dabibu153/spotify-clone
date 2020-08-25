@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "spotify-bold";
+  src: local("spotify-bold"),
+    url(../font/Proxima_Nova_Bold.otf) format("truetype");
+}
+@font-face {
+  font-family: "spotify-thin";
+  src: local("spotify-thin"),
+    url(../font/Proxima_Nova_Thin.otf) format("truetype");
+}
+.login {
+  display: grid;
+  background-color: black;
+  height: 100vh;
+  place-items: center;
+}
+
+.login > img {
+  height: 200px;
+}
+
+.login > a {
+  font-family: "spotify-bold";
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 99px;
+  font-weight: 800;
+  background-color: #1db954;
+}

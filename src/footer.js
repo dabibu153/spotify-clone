@@ -14,7 +14,18 @@ import { Slider } from "@material-ui/core";
 function Footer() {
   return (
     <div className="player_footer">
-      <div className="songDetails">song details</div>
+      <div className="songDetails">
+        <img
+          src="https://i.pinimg.com/originals/3e/19/32/3e1932324b40fabbda27fa8b90f2c28f.jpg"
+          alt=""
+        />
+        <div className="song">
+          <div className="songName">Do Gunna</div>
+          <div className="artistName">Seedhe Maut</div>
+        </div>
+        <AiOutlineHeart size={22} />
+        <MdPictureInPictureAlt size={22} />
+      </div>
       <div className="pps">
         <BiShuffle size={22} style={{ paddingTop: "4px" }} />
         <BiSkipPrevious size={30} />
@@ -26,7 +37,7 @@ function Footer() {
         <MdQueueMusic size={18} />
         <HiOutlineDesktopComputer size={18} />
         <AiTwotoneSound size={18} />
-        <Slider style={{ width: "100px", color: "green" }} />
+        <Slider style={{ width: "100px", color: "#1DB954" }} />
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ function App() {
         console.log("user Data", user);
         dispatch({
           type: "SET_USER",
-          user: user,
+          user: { ...user },
         });
       });
       spotify.getUserPlaylists().then((res) => {
@@ -35,11 +35,19 @@ function App() {
           playlists: [...res.items],
         });
       });
+      spotify.getPlaylist("37i9dQZEVXcSbjF3uzk6mC").then((res) => {
+        console.log("dw", res);
+        dispatch({ type: "SET_DISCOVER", playlist: res });
+      });
     }
   }, []);
 
   console.log("user Data from store", user);
-  return <div className="App">{token ? <Player /> : <Login />}</div>;
+  return (
+    <div className="App">
+      {token ? <Player spotify={spotify} /> : <Login />}
+    </div>
+  );
 }
 
 export default App;

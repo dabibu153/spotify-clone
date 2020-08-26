@@ -8,23 +8,58 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .songDetails {
+  font-family: "spotify-thin";
+  font-weight: 800;
   flex: 0.3;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  max-width: 300px;
+  max-width: 250px;
+  min-width: 200px;
+  color: #b3b3b3;
+}
+
+.songDetails > img {
+  height: 50px;
+}
+
+.songName {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.songName:hover {
+  text-decoration: underline;
+}
+
+.artistName {
+  font-size: 12px;
+  color: #b3b3b3;
+  transition: 200ms color ease-in;
+  cursor: pointer;
+}
+.artistName:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .pps {
   flex: 0.4;
   color: #b3b3b3;
   max-width: 400px;
+  min-width: 300px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: 300ms color ease-in;
+}
+.pps:hover {
+  color: white;
 }
 
 .sound {
@@ -33,5 +68,11 @@
   justify-content: space-around;
   align-items: center;
   max-width: 300px;
-  padding: ;
+  min-width: 200px;
+  color: #b3b3b3;
+  transition: 300ms color ease-in;
+  margin-right: 30px;
+}
+.sound:hover {
+  color: white;
 }

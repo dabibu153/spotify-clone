@@ -1,0 +1,39 @@
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+  height: 45px;
+  min-width: 250px;
+  max-width: 500px;
+  width: 100%;
+  padding-left: 10px;
+}
+.headerLeft > input {
+  border: none;
+  width: 100%;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  background-color: black;
+  border-radius: 99px;
+  height: 48px;
+}
+
+.userName {
+  color: white;
+  font-family: "spotify-bold";
+  padding-left: 10px;
+  padding-right: 10px;
+}

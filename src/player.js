@@ -4,12 +4,12 @@ import Sidebar from "./sidebar.js";
 import Content from "./body_content.js";
 import Footer from "./footer.js";
 
-function Player() {
+function Player({ spotify }) {
   return (
     <div className="player">
       <div className="player_body">
         <Sidebar />
-        <Content />
+        <Content spotify={spotify} />
       </div>
       <Footer />
     </div>

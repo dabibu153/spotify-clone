@@ -1,0 +1,11 @@
+.playListName {
+  font-family: "spotify-thin";
+  font-weight: 800;
+  color: #b3b3b3;
+  margin: 10px;
+  transition: 300ms color ease-in;
+  cursor: pointer;
+}
+.playListName:hover {
+  color: white;
+}

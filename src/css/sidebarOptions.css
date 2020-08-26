@@ -1,0 +1,23 @@
+.options {
+  display: flex;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.optionText {
+  font-family: "spotify-bold";
+  color: #b3b3b3;
+  padding-left: 10px;
+  transition: 300ms color ease-in;
+}
+.optionText:hover {
+  color: white;
+}
+
+.optionIcon {
+  color: #b3b3b3;
+  transition: 300ms color ease-in;
+}
+.optionIcon:hover {
+  color: white;
+}

@@ -1,0 +1,25 @@
+.sidebar {
+  min-width: 230px;
+  height: 100vh;
+  flex: 0.12;
+  background-color: black;
+  padding: 20px;
+}
+
+.sidebar_logo {
+  height: 65px;
+}
+
+.playlistTitle {
+  font-family: "spotify-bold";
+  color: #b3b3b3;
+  padding-left: 10px;
+}
+hr {
+  margin-top: 10px;
+  border: 1px solid grey;
+}
+.playlists {
+  font-family: "spotify-thin";
+  color: #b3b3b3;
+}

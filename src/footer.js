@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/footer.css";
 import {
   AiOutlineHeart,
@@ -10,8 +10,11 @@ import { MdPictureInPictureAlt, MdQueueMusic, MdRepeat } from "react-icons/md";
 import { BiShuffle, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { Slider } from "@material-ui/core";
+import { useDataLayerValue } from "./DataLayer";
 
-function Footer() {
+function Footer({ spotify }) {
+  const [{ playing, item }, dispatch] = useDataLayerValue();
+
   return (
     <div className="player_footer">
       <div className="songDetails">
@@ -29,7 +32,11 @@ function Footer() {
       <div className="pps">
         <BiShuffle size={22} style={{ paddingTop: "4px" }} />
         <BiSkipPrevious size={30} />
-        <AiFillPlayCircle size={32} />
+        {playing ? (
+          <AiFillPauseCircle size={32} />
+        ) : (
+          <AiFillPlayCircle size={32} />
+        )}
         <BiSkipNext size={30} />
         <MdRepeat size={22} style={{ paddingTop: "4px" }} />
       </div>

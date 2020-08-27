@@ -1,0 +1,90 @@
+.songData {
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.songData:hover {
+  background-color: #363636;
+  border-radius: 5px;
+}
+
+.singListHead1 {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr 1fr 0.4fr;
+  align-items: center;
+  justify-items: start;
+  padding-left: 20px;
+}
+.singListHead1 > div {
+  color: #b3b3b3;
+  font-family: "spotify-bold";
+}
+
+.index {
+  align-self: center;
+  display: inline-block;
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.playButton1 {
+  color: #1db954;
+}
+
+.trackName {
+  display: flex;
+}
+
+.trackName > img {
+  height: 38px;
+}
+
+.songinfo1 {
+  padding-left: 10px;
+}
+
+.songinfo1Name:hover {
+  color: white;
+}
+
+.songinfo1Artist {
+  font-size: 12px;
+}
+
+.songinfo1Artist:hover {
+  color: white;
+}
+.albumName {
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.albumName:hover {
+  color: white;
+}
+.date {
+  display: inline-block;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.date:hover {
+  color: white;
+}
+.length {
+  display: inline-block;
+  width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.length:hover {
+  color: white;
+}

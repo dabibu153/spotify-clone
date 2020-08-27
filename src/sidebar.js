@@ -6,8 +6,23 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useDataLayerValue } from "./DataLayer";
 import PlayListNames from "./playListNames.js";
 
-function Sidebar() {
-  const [{ playlists }, dispatch] = useDataLayerValue();
+function Sidebar({ spotify }) {
+  const [{ playlists, currentPlaylist }, dispatch] = useDataLayerValue();
+
+  const handleHome = () => {
+    spotify.getPlaylist("37i9dQZEVXcSbjF3uzk6mC").then((res) => {
+      console.log("requested playlist", res);
+      dispatch({ type: "SET_DISCOVER", playlist: res });
+    });
+  };
+
+  const handlePlaylist = (e) => {
+    console.log(e);
+    spotify.getPlaylist(e).then((res) => {
+      console.log("requested playlist", res);
+      dispatch({ type: "SET_DISCOVER", playlist: res });
+    });
+  };
   return (
     <div className="sidebar">
       <img
@@ -15,7 +30,9 @@ function Sidebar() {
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
         alt=""
       />
-      <SidebarOptions title="Home" icon={<VscHome size={22} />} />
+      <div onClick={() => handleHome()}>
+        <SidebarOptions title="Home" icon={<VscHome size={22} />} />
+      </div>
       <SidebarOptions title="Search" icon={<AiOutlineSearch size={22} />} />
       <SidebarOptions title="Your Library" icon={<VscLibrary size={22} />} />
 
@@ -24,7 +41,9 @@ function Sidebar() {
       <hr />
       <div className="playlists">
         {playlists.map((playlist) => (
-          <PlayListNames title={playlist.name} />
+          <div onClick={() => handlePlaylist(playlist.id)}>
+            <PlayListNames title={playlist.name} />
+          </div>
         ))}
       </div>
     </div>

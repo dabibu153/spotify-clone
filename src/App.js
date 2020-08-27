@@ -5,9 +5,8 @@ import { getTokenFromResponse } from "./authContent";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
 
-const spotify = new SpotifyWebApi();
-
 function App() {
+  const spotify = new SpotifyWebApi();
   const [{ user, token, playlists }, dispatch] = useDataLayerValue();
 
   useEffect(() => {

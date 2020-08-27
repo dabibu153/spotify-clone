@@ -1,10 +1,14 @@
 .body_content {
-  padding: 30px;
   flex: 0.88;
   background: linear-gradient(rgb(83, 83, 83), #2a2a2a);
+  overflow-y: none;
+}
+.body_content::-webkit-scrollbar {
+  display: none;
 }
 
 .banner {
+  padding: 30px;
   color: white;
   display: flex;
   align-items: flex-end;
@@ -13,7 +17,7 @@
 }
 .banner > img {
   height: 20vh;
-  margin: 0 20px;
+
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
 }
 
@@ -28,4 +32,37 @@
 
 .text > p {
   font-size: 14px;
+}
+
+.songList {
+  padding: 30px;
+  margin-top: 20px;
+  background: linear-gradient(#212121, #121212);
+}
+.topIcons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topIcons > .AiFillPlayCircle {
+  font-size: 80px !important;
+  color: #1db954;
+  margin-right: 20px;
+}
+
+.topIcons > .BsThreeDots {
+  color: white;
+}
+
+.singListHead {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr 1fr 0.4fr;
+
+  padding-left: 20px;
+}
+
+.singListHead > div {
+  color: #b3b3b3;
+  font-family: "spotify-bold";
 }

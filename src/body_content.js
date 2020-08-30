@@ -10,21 +10,30 @@ function Content({ spotify }) {
   const [{ user, playlists, currentPlaylist }, dispatch] = useDataLayerValue();
 
   const playSong = (id) => {
+    console.log(id);
     spotify
-      .play({
-        uris: [`spotify:track:${id}`],
-      })
+      .play({ uris: [`spotify:track:${id}`] })
       .then((res) => {
-        spotify.getMyCurrentPlayingTrack().then((r) => {
-          dispatch({
-            type: "SET_ITEM",
-            item: r.item,
+        console.log("play", res);
+        spotify
+          .getMyCurrentPlayingTrack()
+          .then((r) => {
+            console.log("currentplaying track", r);
+            dispatch({
+              type: "SET_ITEM",
+              item: r.item,
+            });
+            dispatch({
+              type: "SET_PLAYING",
+              playing: true,
+            });
+          })
+          .catch((ree1) => {
+            console.log("currentplaying track error", ree1);
           });
-          dispatch({
-            type: "SET_PLAYING",
-            playing: true,
-          });
-        });
+      })
+      .catch((ree) => {
+        console.log("play error", ree);
       });
   };
 
@@ -55,9 +64,12 @@ function Content({ spotify }) {
         </div>
         <hr />
         {currentPlaylist?.tracks.items.map((song, index) => (
-          <SongRow track={song} index={index} playSong={playSong} />
+          <div onClick={() => playSong(song.track.id)}>
+            <SongRow track={song} index={index} spotify={spotify} />
+          </div>
         ))}
       </div>
+      <div style={{ height: "95px" }}></div>
     </div>
   );
 }

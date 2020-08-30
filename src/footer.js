@@ -15,16 +15,44 @@ import { useDataLayerValue } from "./DataLayer";
 function Footer({ spotify }) {
   const [{ playing, item }, dispatch] = useDataLayerValue();
 
+  const handleSkipNext = () => {
+    spotify.skipToNext().then((res) => {
+      spotify
+        .getMyCurrentPlayingTrack()
+        .then((r) => {
+          console.log("currentplaying track", r);
+          dispatch({
+            type: "SET_ITEM",
+            item: r.item,
+          });
+          dispatch({
+            type: "SET_PLAYING",
+            playing: true,
+          });
+        })
+        .catch((ree1) => {
+          console.log("currentplaying track error", ree1);
+        });
+    });
+  };
+
+  const handlePauseSong = () => {
+    spotify.pause();
+    dispatch({ type: "SET_PLAYING", playing: false });
+  };
+
+  const handlePlaySong = () => {
+    spotify.play();
+    dispatch({ type: "SET_PLAYING", playing: true });
+  };
+
   return (
     <div className="player_footer">
       <div className="songDetails">
-        <img
-          src="https://i.pinimg.com/originals/3e/19/32/3e1932324b40fabbda27fa8b90f2c28f.jpg"
-          alt=""
-        />
+        <img src={item?.album.images[0].url} alt="" />
         <div className="song">
-          <div className="songName">Do Gunna</div>
-          <div className="artistName">Seedhe Maut</div>
+          <div className="songName">{item?.name}</div>
+          <div className="artistName">{item?.artists[0].name}</div>
         </div>
         <AiOutlineHeart size={22} />
         <MdPictureInPictureAlt size={22} />
@@ -33,11 +61,11 @@ function Footer({ spotify }) {
         <BiShuffle size={22} style={{ paddingTop: "4px" }} />
         <BiSkipPrevious size={30} />
         {playing ? (
-          <AiFillPauseCircle size={32} />
+          <AiFillPauseCircle size={32} onClick={handlePauseSong} />
         ) : (
-          <AiFillPlayCircle size={32} />
+          <AiFillPlayCircle size={32} onClick={handlePlaySong} />
         )}
-        <BiSkipNext size={30} />
+        <BiSkipNext size={30} onClick={handleSkipNext} />
         <MdRepeat size={22} style={{ paddingTop: "4px" }} />
       </div>
       <div className="sound">

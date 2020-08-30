@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./css/songRow.css";
 import { BsFillPlayFill } from "react-icons/bs";
+import { useDataLayerValue } from "./DataLayer";
 
 function SongRow(props) {
   const [isAlbum, setisAlbum] = useState(false);
   const [songLen, setsongLen] = useState(null);
   const [button, setbutton] = useState(false);
+  const [{ item }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     setsongLen(props.track.track.duration_ms);
@@ -22,11 +24,23 @@ function SongRow(props) {
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
 
+  // const handleSongClick = () => {
+  //   props.spotify
+  //     .play({ uris: "spotify:track:31DDuHXfp9KVdE8Ru3RK25" })
+  //     .then((res) => console.log("play", res))
+  //     .catch((err) => console.log("play err", err));
+  //   props.spotify.getMyCurrentPlayingTrack().then((res) => {
+  //     console.log(res);
+  //     dispatch({ type: "SET_ITEM", item: res });
+  //   });
+  // };
+
   return (
     <div
       className="songData"
       onMouseOver={() => setbutton(true)}
       onMouseOut={() => setbutton(false)}
+      // onClick={handleSongClick}
     >
       <div className="singListHead1">
         <div className="index">

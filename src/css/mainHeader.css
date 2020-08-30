@@ -17,6 +17,7 @@
   max-width: 500px;
   width: 100%;
   padding-left: 10px;
+  margin-right: 10px;
 }
 .headerLeft > input {
   border: none;
@@ -26,7 +27,7 @@
 .headerRight {
   display: flex;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 60px;
   background-color: black;
   border-radius: 99px;
   height: 48px;

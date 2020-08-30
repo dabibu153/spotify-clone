@@ -10,15 +10,12 @@ function Content({ spotify }) {
   const [{ user, playlists, currentPlaylist }, dispatch] = useDataLayerValue();
 
   const playSong = (id) => {
-    console.log(id);
     spotify
       .play({ uris: [`spotify:track:${id}`] })
       .then((res) => {
-        console.log("play", res);
         spotify
           .getMyCurrentPlayingTrack()
           .then((r) => {
-            console.log("currentplaying track", r);
             dispatch({
               type: "SET_ITEM",
               item: r.item,

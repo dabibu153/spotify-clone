@@ -11,7 +11,6 @@ function Sidebar({ spotify }) {
 
   const handleHome = () => {
     spotify.getPlaylist("37i9dQZEVXcSbjF3uzk6mC").then((res) => {
-      console.log("requested playlist", res);
       dispatch({ type: "SET_DISCOVER", playlist: res });
     });
   };
@@ -19,7 +18,6 @@ function Sidebar({ spotify }) {
   const handlePlaylist = (e) => {
     console.log(e);
     spotify.getPlaylist(e).then((res) => {
-      console.log("requested playlist", res);
       dispatch({ type: "SET_DISCOVER", playlist: res });
     });
   };

@@ -24,23 +24,11 @@ function SongRow(props) {
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
 
-  // const handleSongClick = () => {
-  //   props.spotify
-  //     .play({ uris: "spotify:track:31DDuHXfp9KVdE8Ru3RK25" })
-  //     .then((res) => console.log("play", res))
-  //     .catch((err) => console.log("play err", err));
-  //   props.spotify.getMyCurrentPlayingTrack().then((res) => {
-  //     console.log(res);
-  //     dispatch({ type: "SET_ITEM", item: res });
-  //   });
-  // };
-
   return (
     <div
       className="songData"
       onMouseOver={() => setbutton(true)}
       onMouseOut={() => setbutton(false)}
-      // onClick={handleSongClick}
     >
       <div className="singListHead1">
         <div className="index">

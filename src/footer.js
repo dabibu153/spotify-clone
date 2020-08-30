@@ -20,7 +20,6 @@ function Footer({ spotify }) {
       spotify
         .getMyCurrentPlayingTrack()
         .then((r) => {
-          console.log("currentplaying track", r);
           dispatch({
             type: "SET_ITEM",
             item: r.item,
